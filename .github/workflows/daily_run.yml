@@ -1,3 +1,5 @@
+name: Daily Bet Scan
+
 on:
   schedule:
     # 10:00 UTC ≈ 6:00 AM ET. Note this drifts to 5:00 AM ET during EST
@@ -8,6 +10,10 @@ on:
 
 permissions:
   contents: write   # needed so the job can commit daily_bets.json back
+
+concurrency:
+  group: daily-bet-scan
+  cancel-in-progress: false   # let overlapping runs queue instead of racing each other
 
 jobs:
   run-scraper:
@@ -35,4 +41,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add daily_bets.json
           git diff --staged --quiet || git commit -m "Update daily_bets.json"
+          git pull --rebase origin main
           git push
