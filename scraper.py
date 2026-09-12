@@ -244,6 +244,11 @@ def main():
         stat_team_names = list(team_stats.keys())
         events = fetch_odds(sport_key)
 
+        print(f"  {len(events)} event(s) returned by the odds API")
+
+        events_with_both_books = 0
+        best_ev_seen = None  # (ev, home_team, away_team, side) for visibility
+
         for event in events:
             home_team = event["home_team"]
             away_team = event["away_team"]
@@ -297,6 +302,8 @@ def main():
             if home_team not in dk_outcomes or away_team not in dk_outcomes:
                 continue
 
+            events_with_both_books += 1
+
             pin_home_price, pin_line = pin_outcomes[home_team]
             pin_away_price, _ = pin_outcomes[away_team]
             dk_home_price, dk_line = dk_outcomes[home_team]
@@ -348,6 +355,9 @@ def main():
                 p_hybrid = time_decay_blend(p_sharp_adj, p_bu, hours_to_kickoff)
                 ev = (p_hybrid * dk_price) - 1
 
+                if best_ev_seen is None or ev > best_ev_seen[0]:
+                    best_ev_seen = (ev, home_team, away_team, side)
+
                 if ev >= EV_THRESHOLD:
                     all_bets.append(
                         {
@@ -363,6 +373,13 @@ def main():
                             "units": assign_tiered_units(ev),
                         }
                     )
+
+        print(f"  {events_with_both_books} event(s) had both Pinnacle and DraftKings spreads")
+        if best_ev_seen:
+            ev, h, a, side = best_ev_seen
+            print(f"  best EV seen: {ev*100:.2f}% ({h} v {a}, {side} side) [threshold is {EV_THRESHOLD*100:.0f}%]")
+        else:
+            print("  no fixture had both books available to compare")
 
     output_data = {
         "last_updated": datetime.now(timezone.utc).isoformat(),
