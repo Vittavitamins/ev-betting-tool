@@ -248,6 +248,14 @@ def main():
 
         events_with_both_books = 0
         best_ev_seen = None  # (ev, home_team, away_team, side) for visibility
+        bookmaker_keys_seen = set()
+        market_keys_seen = set()
+
+        for event in events:
+            for bm in event.get("bookmakers", []):
+                bookmaker_keys_seen.add(bm["key"])
+                for mkt in bm.get("markets", []):
+                    market_keys_seen.add(mkt["key"])
 
         for event in events:
             home_team = event["home_team"]
@@ -375,6 +383,8 @@ def main():
                     )
 
         print(f"  {events_with_both_books} event(s) had both Pinnacle and DraftKings spreads")
+        print(f"  bookmakers seen: {sorted(bookmaker_keys_seen) if bookmaker_keys_seen else '(none)'}")
+        print(f"  markets seen: {sorted(market_keys_seen) if market_keys_seen else '(none)'}")
         if best_ev_seen:
             ev, h, a, side = best_ev_seen
             print(f"  best EV seen: {ev*100:.2f}% ({h} v {a}, {side} side) [threshold is {EV_THRESHOLD*100:.0f}%]")
