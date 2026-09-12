@@ -35,6 +35,14 @@ FD_URLS = {
 EV_THRESHOLD = 0.02          # minimum EV to be included in output at all
 LEAGUE_BASELINE_GOALS = 1.45  # average goals per team per match, fallback
 
+# Preference order for the "soft" side of the comparison. The script tries
+# each of these in order per fixture and uses the first one that's actually
+# posting a spreads line for that game -- DraftKings does post soccer
+# Asian handicap lines, but not for every fixture this far out, so this
+# keeps the tool producing output on regulated US books rather than
+# requiring DK specifically on every single game.
+TARGET_BOOKS = ["draftkings", "fanduel", "betmgm", "betrivers"]
+
 # football-data.co.uk uses short/abbreviated club names; The Odds API uses
 # full official names. These two sources will almost never match on a raw
 # string compare, so bets will silently fall back to generic 1.0/1.0
@@ -293,15 +301,25 @@ def main():
             )
 
             pin_market = None
-            dk_market = None
+            books_by_key = {}
             for bookmaker in event.get("bookmakers", []):
                 if bookmaker["key"] == "pinnacle":
                     pin_market = extract_spread_market(bookmaker)
-                elif bookmaker["key"] == "draftkings":
-                    dk_market = extract_spread_market(bookmaker)
+                else:
+                    market = extract_spread_market(bookmaker)
+                    if market:
+                        books_by_key[bookmaker["key"]] = market
+
+            target_book_key = None
+            dk_market = None
+            for candidate in TARGET_BOOKS:
+                if candidate in books_by_key:
+                    target_book_key = candidate
+                    dk_market = books_by_key[candidate]
+                    break
 
             if not pin_market or not dk_market:
-                continue  # need both books present to compare
+                continue  # need Pinnacle plus one target book present to compare
 
             pin_outcomes = outcomes_by_team(pin_market)
             dk_outcomes = outcomes_by_team(dk_market)
@@ -375,21 +393,22 @@ def main():
                             "commence_time": event["commence_time"],
                             "side": side,
                             "line": dk_line if side == "home" else -dk_line,
-                            "dk_price": dk_price,
+                            "book": target_book_key,
+                            "price": dk_price,
                             "p_hybrid": round(p_hybrid, 4),
                             "ev": round(ev, 4),
                             "units": assign_tiered_units(ev),
                         }
                     )
 
-        print(f"  {events_with_both_books} event(s) had both Pinnacle and DraftKings spreads")
+        print(f"  {events_with_both_books} event(s) had both Pinnacle and a target book's spreads")
         print(f"  bookmakers seen: {sorted(bookmaker_keys_seen) if bookmaker_keys_seen else '(none)'}")
         print(f"  markets seen: {sorted(market_keys_seen) if market_keys_seen else '(none)'}")
         if best_ev_seen:
             ev, h, a, side = best_ev_seen
             print(f"  best EV seen: {ev*100:.2f}% ({h} v {a}, {side} side) [threshold is {EV_THRESHOLD*100:.0f}%]")
         else:
-            print("  no fixture had both books available to compare")
+            print("  no fixture had Pinnacle plus a target book to compare")
 
     output_data = {
         "last_updated": datetime.now(timezone.utc).isoformat(),
