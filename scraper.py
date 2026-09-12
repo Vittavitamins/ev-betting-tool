@@ -1,6 +1,7 @@
 import os
 import json
 import math
+import time
 import difflib
 from datetime import datetime, timezone
 
@@ -12,6 +13,7 @@ from scipy.stats import poisson
 # Configuration
 # ============================================================
 ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "YOUR_API_KEY_HERE")
+SHARPAPI_KEY = os.environ.get("SHARPAPI_KEY", "YOUR_SHARPAPI_KEY_HERE")
 
 LEAGUES = {
     "soccer_epl": "Premier League",
@@ -20,6 +22,19 @@ LEAGUES = {
     "soccer_italy_serie_a": "Serie A",
     "soccer_uefa_champs_league": "Champions League",
 }
+
+# SharpAPI uses its own league slugs, separate from The Odds API's sport
+# keys above. Champions League isn't included here since SharpAPI's slug
+# for it wasn't confirmed during testing -- add it once you've verified
+# the exact slug via GET /api/v1/leagues.
+SHARPAPI_LEAGUES = {
+    "Premier League": "england_-_premier_league",
+    "La Liga": "spain_-_la_liga",
+    "Bundesliga": "germany_-_bundesliga",
+    "Serie A": "italy_-_serie_a",
+}
+
+SHARPAPI_RATE_LIMIT_SLEEP = 5.5  # seconds between calls; free tier is 12 req/min
 
 # NOTE: football-data.co.uk's path segment is "mmz4281", not "mmh".
 # The Champions League isn't published on football-data.co.uk, so it has
@@ -43,45 +58,47 @@ LEAGUE_BASELINE_GOALS = 1.45  # average goals per team per match, fallback
 # requiring DK specifically on every single game.
 TARGET_BOOKS = ["draftkings", "fanduel", "betmgm", "betrivers"]
 
-# football-data.co.uk uses short/abbreviated club names; The Odds API uses
-# full official names. These two sources will almost never match on a raw
-# string compare, so bets will silently fall back to generic 1.0/1.0
-# ratings unless names are reconciled. This is a starter alias map, not a
-# complete one -- extend it as you hit misses (the script logs unmapped
-# names to stderr so you can find them).
+# football-data.co.uk uses short/abbreviated club names; that's the space
+# every incoming name needs to reconcile into, since it's what
+# fetch_historical_stats() keys team_stats by. Different odds providers use
+# different naming (The Odds API tends to use full official names; SharpAPI
+# uses its own short forms that don't always match football-data's). Every
+# alias below maps a known alternate spelling *to* football-data's short
+# form -- never the other way -- so it works the same regardless of which
+# provider's name comes in. This is a starter map, not a complete one --
+# extend it as you hit misses (the script logs unmapped names so you can
+# find them).
 TEAM_ALIASES = {
-    "Man United": "Manchester United",
-    "Man Utd": "Manchester United",
-    "Man City": "Manchester City",
-    "Spurs": "Tottenham Hotspur",
-    "Tottenham": "Tottenham Hotspur",
-    "Wolves": "Wolverhampton Wanderers",
-    "Newcastle": "Newcastle United",
-    "West Ham": "West Ham United",
-    "Leicester": "Leicester City",
-    "Nott'm Forest": "Nottingham Forest",
-    "Brighton": "Brighton and Hove Albion",
-    "Sociedad": "Real Sociedad",
-    "Ath Madrid": "Atletico Madrid",
-    "Ath Bilbao": "Athletic Bilbao",
-    "Betis": "Real Betis",
-    "Vallecano": "Rayo Vallecano",
-    "Alaves": "Deportivo Alaves",
-    "Celta": "Celta Vigo",
-    "M'gladbach": "Borussia Monchengladbach",
-    "Dortmund": "Borussia Dortmund",
-    "Ein Frankfurt": "Eintracht Frankfurt",
-    "FC Koln": "FC Cologne",
-    "Leverkusen": "Bayer Leverkusen",
-    "Bayern Munich": "Bayern Munich",
-    "RB Leipzig": "RB Leipzig",
-    "Hoffenheim": "TSG Hoffenheim",
-    "Union Berlin": "Union Berlin",
-    "Werder Bremen": "Werder Bremen",
-    "Wolfsburg": "VfL Wolfsburg",
-    "Milan": "AC Milan",
-    "Inter": "Inter Milan",
-    "Verona": "Hellas Verona",
+    "Manchester United": "Man United",
+    "Man Utd": "Man United",
+    "Manchester City": "Man City",
+    "Spurs": "Tottenham",
+    "Tottenham Hotspur": "Tottenham",
+    "Wolverhampton Wanderers": "Wolves",
+    "Newcastle United": "Newcastle",
+    "West Ham United": "West Ham",
+    "Leicester City": "Leicester",
+    "Nottingham Forest": "Nott'm Forest",
+    "Brighton and Hove Albion": "Brighton",
+    "Brighton & Hove Albion": "Brighton",
+    "Real Sociedad": "Sociedad",
+    "Atletico Madrid": "Ath Madrid",
+    "Athletic Bilbao": "Ath Bilbao",
+    "Real Betis": "Betis",
+    "Rayo Vallecano": "Vallecano",
+    "Deportivo Alaves": "Alaves",
+    "Celta Vigo": "Celta",
+    "Borussia Monchengladbach": "M'gladbach",
+    "Borussia Dortmund": "Dortmund",
+    "Eintracht Frankfurt": "Ein Frankfurt",
+    "FC Cologne": "FC Koln",
+    "1. FC Koln": "FC Koln",
+    "Bayer Leverkusen": "Leverkusen",
+    "TSG Hoffenheim": "Hoffenheim",
+    "VfL Wolfsburg": "Wolfsburg",
+    "AC Milan": "Milan",
+    "Inter Milan": "Inter",
+    "Hellas Verona": "Verona",
 }
 
 
@@ -89,10 +106,10 @@ TEAM_ALIASES = {
 # Team name reconciliation
 # ============================================================
 def normalize_team_name(name, candidates):
-    """Maps a football-data.co.uk name to the closest Odds API name.
-    Tries the explicit alias table first, then falls back to fuzzy
-    string matching against the set of names actually seen in the
-    odds feed for that fixture window."""
+    """Maps an incoming team name (from any odds provider) to football-data
+    .co.uk's canonical short-form name, since that's what team_stats is
+    keyed by. Tries the explicit alias table first, then falls back to
+    fuzzy string matching against football-data's own names."""
     if name in TEAM_ALIASES:
         return TEAM_ALIASES[name]
     match = difflib.get_close_matches(name, candidates, n=1, cutoff=0.6)
@@ -150,11 +167,13 @@ def fetch_historical_stats(league_name):
 # Top-down: live odds
 # ============================================================
 def fetch_odds(sport_key):
-    """Fetches live odds from The Odds API for Pinnacle and DraftKings."""
+    """Fetches live odds from The Odds API. Used only for Pinnacle now --
+    the soft-book (DraftKings/FanDuel) side comes from SharpAPI instead,
+    since The Odds API doesn't return spreads from those books for soccer."""
     url = f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds"
     params = {
         "apiKey": ODDS_API_KEY,
-        "regions": "us,eu",
+        "regions": "eu",
         "markets": "spreads",
         "oddsFormat": "decimal",
     }
@@ -163,6 +182,92 @@ def fetch_odds(sport_key):
         return response.json()
     print(f"API Error ({sport_key}): {response.status_code} - {response.text}")
     return []
+
+
+def fetch_sharpapi_point_spreads(league_slug):
+    """Fetches all point_spread rows for a league from SharpAPI (free tier:
+    DraftKings + FanDuel only), paginating through results and respecting
+    the free-tier rate limit."""
+    url = "https://api.sharpapi.io/api/v1/odds"
+    headers = {"X-API-Key": SHARPAPI_KEY}
+    all_rows = []
+    offset = 0
+    limit = 50
+
+    while True:
+        params = {
+            "sport": "soccer",
+            "league": league_slug,
+            "market": "point_spread",
+            "limit": limit,
+            "offset": offset,
+        }
+        response = requests.get(url, headers=headers, params=params, timeout=15)
+        if response.status_code != 200:
+            print(f"SharpAPI Error ({league_slug}): {response.status_code} - {response.text}")
+            break
+
+        payload = response.json()
+        all_rows.extend(payload.get("data", []))
+
+        pagination = payload.get("pagination", {})
+        if not pagination.get("has_more"):
+            break
+        offset = pagination.get("next_offset", offset + limit)
+        time.sleep(SHARPAPI_RATE_LIMIT_SLEEP)
+
+    return all_rows
+
+
+def build_sharpapi_lookup(rows, stat_team_names):
+    """Groups raw SharpAPI point_spread rows into one entry per fixture,
+    keyed by (normalized_home_team, normalized_away_team) using the same
+    name-normalization used for the bottom-up stats, so fixtures line up
+    with events from The Odds API regardless of each source's own naming.
+    Only uses the main line, and prefers DraftKings over FanDuel per
+    TARGET_BOOKS order when both are present for a fixture."""
+    events = {}
+    for row in rows:
+        if not row.get("is_main_line"):
+            continue
+        event_id = row["event_id"]
+        events.setdefault(event_id, {"home_team": row["home_team"], "away_team": row["away_team"],
+                                      "event_start_time": row["event_start_time"], "rows": []})
+        events[event_id]["rows"].append(row)
+
+    lookup = {}
+    for event in events.values():
+        # Pick the preferred book among whichever posted the main line
+        books_present = {r["sportsbook"] for r in event["rows"]}
+        chosen_book = next((b for b in TARGET_BOOKS if b in books_present), None)
+        if not chosen_book:
+            continue
+
+        home_row = next(
+            (r for r in event["rows"] if r["sportsbook"] == chosen_book and r["team_side"] == "home"),
+            None,
+        )
+        away_row = next(
+            (r for r in event["rows"] if r["sportsbook"] == chosen_book and r["team_side"] == "away"),
+            None,
+        )
+        if not home_row or not away_row:
+            continue
+
+        home_key = normalize_team_name(event["home_team"], stat_team_names)
+        away_key = normalize_team_name(event["away_team"], stat_team_names)
+
+        lookup[(home_key, away_key)] = {
+            "home_team": event["home_team"],
+            "away_team": event["away_team"],
+            "event_start_time": event["event_start_time"],
+            "home_price": home_row["odds_decimal"],
+            "home_line": home_row["line"],
+            "away_price": away_row["odds_decimal"],
+            "away_line": away_row["line"],
+            "book": chosen_book,
+        }
+    return lookup
 
 
 # ============================================================
@@ -254,6 +359,17 @@ def main():
 
         print(f"  {len(events)} event(s) returned by the odds API")
 
+        sharpapi_league_slug = SHARPAPI_LEAGUES.get(league_name)
+        if sharpapi_league_slug:
+            sharpapi_rows = fetch_sharpapi_point_spreads(sharpapi_league_slug)
+            sharpapi_lookup = build_sharpapi_lookup(sharpapi_rows, stat_team_names)
+            time.sleep(SHARPAPI_RATE_LIMIT_SLEEP)  # stay under free-tier rate limit
+        else:
+            sharpapi_lookup = {}
+            print(f"  no SharpAPI league slug configured for {league_name}, skipping soft-book side")
+
+        print(f"  {len(sharpapi_lookup)} fixture(s) with a DraftKings/FanDuel main line from SharpAPI")
+
         events_with_both_books = 0
         best_ev_seen = None  # (ev, home_team, away_team, side) for visibility
         bookmaker_keys_seen = set()
@@ -301,39 +417,29 @@ def main():
             )
 
             pin_market = None
-            books_by_key = {}
             for bookmaker in event.get("bookmakers", []):
                 if bookmaker["key"] == "pinnacle":
                     pin_market = extract_spread_market(bookmaker)
-                else:
-                    market = extract_spread_market(bookmaker)
-                    if market:
-                        books_by_key[bookmaker["key"]] = market
-
-            target_book_key = None
-            dk_market = None
-            for candidate in TARGET_BOOKS:
-                if candidate in books_by_key:
-                    target_book_key = candidate
-                    dk_market = books_by_key[candidate]
                     break
 
-            if not pin_market or not dk_market:
-                continue  # need Pinnacle plus one target book present to compare
+            # Match this fixture to a SharpAPI quote via the same normalized
+            # team-name keys used for the bottom-up stats lookup above.
+            soft_quote = sharpapi_lookup.get((home_key, away_key))
+
+            if not pin_market or not soft_quote:
+                continue  # need Pinnacle plus a SharpAPI soft-book quote to compare
 
             pin_outcomes = outcomes_by_team(pin_market)
-            dk_outcomes = outcomes_by_team(dk_market)
             if home_team not in pin_outcomes or away_team not in pin_outcomes:
-                continue
-            if home_team not in dk_outcomes or away_team not in dk_outcomes:
                 continue
 
             events_with_both_books += 1
 
             pin_home_price, pin_line = pin_outcomes[home_team]
             pin_away_price, _ = pin_outcomes[away_team]
-            dk_home_price, dk_line = dk_outcomes[home_team]
-            dk_away_price, _ = dk_outcomes[away_team]
+            target_book_key = soft_quote["book"]
+            dk_home_price, dk_line = soft_quote["home_price"], soft_quote["home_line"]
+            dk_away_price = soft_quote["away_price"]
 
             # Sharp fair probabilities at Pinnacle's own line
             p_sharp_home_at_pin_line, p_sharp_away_at_pin_line = devig_pinnacle(
@@ -401,14 +507,14 @@ def main():
                         }
                     )
 
-        print(f"  {events_with_both_books} event(s) had both Pinnacle and a target book's spreads")
-        print(f"  bookmakers seen: {sorted(bookmaker_keys_seen) if bookmaker_keys_seen else '(none)'}")
-        print(f"  markets seen: {sorted(market_keys_seen) if market_keys_seen else '(none)'}")
+        print(f"  {events_with_both_books} event(s) had both Pinnacle and a SharpAPI soft-book quote")
+        print(f"  Odds API bookmakers seen: {sorted(bookmaker_keys_seen) if bookmaker_keys_seen else '(none)'}")
+        print(f"  Odds API markets seen: {sorted(market_keys_seen) if market_keys_seen else '(none)'}")
         if best_ev_seen:
             ev, h, a, side = best_ev_seen
             print(f"  best EV seen: {ev*100:.2f}% ({h} v {a}, {side} side) [threshold is {EV_THRESHOLD*100:.0f}%]")
         else:
-            print("  no fixture had Pinnacle plus a target book to compare")
+            print("  no fixture had Pinnacle plus a SharpAPI soft-book quote to compare")
 
     output_data = {
         "last_updated": datetime.now(timezone.utc).isoformat(),
