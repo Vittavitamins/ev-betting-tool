@@ -48,6 +48,9 @@ FD_URLS = {
 }
 
 EV_THRESHOLD = 0.02          # minimum EV to be included in output at all
+EV_SANITY_CEILING = 0.15     # EVs above this almost always mean a data/matching
+                              # problem, not a real edge -- flagged and excluded
+                              # rather than trusted at face value
 LEAGUE_BASELINE_GOALS = 1.45  # average goals per team per match, fallback
 
 # Preference order for the "soft" side of the comparison. The script tries
@@ -439,7 +442,17 @@ def main():
             pin_away_price, _ = pin_outcomes[away_team]
             target_book_key = soft_quote["book"]
             dk_home_price, dk_line = soft_quote["home_price"], soft_quote["home_line"]
-            dk_away_price = soft_quote["away_price"]
+            dk_away_price, dk_away_line = soft_quote["away_price"], soft_quote["away_line"]
+
+            # Skip fixtures where either team has no real rating data. This
+            # usually means a cup tie or a team from a different division
+            # got tagged under this league by one of the odds feeds -- the
+            # bottom-up model would otherwise silently treat an unknown team
+            # as league-average, which can produce wildly wrong probabilities
+            # when blended against a correctly-priced sharp line.
+            if home_key not in team_stats or away_key not in team_stats:
+                print(f"  skipping {home_team} v {away_team}: team not in {league_name} stats (likely a cup/cross-division fixture)")
+                continue
 
             # Sharp fair probabilities at Pinnacle's own line
             p_sharp_home_at_pin_line, p_sharp_away_at_pin_line = devig_pinnacle(
@@ -457,7 +470,7 @@ def main():
                 lam_home, lam_away, -pin_line, "away"
             )
             p_bu_away_at_dk_line = calculate_poisson_probability(
-                lam_home, lam_away, -dk_line, "away"
+                lam_home, lam_away, dk_away_line, "away"
             )
 
             # If DK's line differs from Pinnacle's, shift the sharp fair
@@ -486,6 +499,10 @@ def main():
             ]:
                 p_hybrid = time_decay_blend(p_sharp_adj, p_bu, hours_to_kickoff)
                 ev = (p_hybrid * dk_price) - 1
+
+                if ev > EV_SANITY_CEILING:
+                    print(f"  flagged and excluded: {home_team} v {away_team} ({side}) showed {ev*100:.1f}% EV -- above the sanity ceiling, likely a data issue, not a real edge")
+                    continue
 
                 if best_ev_seen is None or ev > best_ev_seen[0]:
                     best_ev_seen = (ev, home_team, away_team, side)
