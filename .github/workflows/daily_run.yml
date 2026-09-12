@@ -33,6 +33,7 @@ jobs:
       - name: Run scraper
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          SHARPAPI_KEY: ${{ secrets.SHARPAPI_KEY }}
         run: python scraper.py
 
       - name: Commit updated bets
@@ -41,5 +42,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add daily_bets.json
           git diff --staged --quiet || git commit -m "Update daily_bets.json"
-          git pull --rebase origin main
+          git fetch origin main
+          if ! git merge origin/main --no-edit; then
+            git checkout --ours daily_bets.json
+            git add daily_bets.json
+            git commit --no-edit
+          fi
           git push
