@@ -18,7 +18,7 @@ LEAGUES = {
     "soccer_spain_la_liga": "La Liga",
     "soccer_germany_bundesliga": "Bundesliga",
     "soccer_italy_serie_a": "Serie A",
-    "soccer_uefa_champions_league": "Champions League",
+    "soccer_uefa_champs_league": "Champions League",
 }
 
 # NOTE: football-data.co.uk's path segment is "mmz4281", not "mmh".
