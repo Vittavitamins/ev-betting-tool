@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-09-13T14:22:06.535604+00:00",
+    "last_updated": "2026-09-13T14:38:17.450530+00:00",
     "bets": [
         {
             "league": "Premier League",
@@ -10,9 +10,22 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 2.1,
-            "p_hybrid": 0.5135,
-            "ev": 0.0783,
-            "units": "3 Units (High Edge)"
+            "p_hybrid": 0.4878,
+            "ev": 0.0244,
+            "units": "1 Unit (Standard Edge)"
+        },
+        {
+            "league": "Premier League",
+            "home_team": "Brentford",
+            "away_team": "Chelsea",
+            "commence_time": "2026-09-18T19:00:00Z",
+            "side": "home",
+            "line": 0.5,
+            "book": "draftkings",
+            "price": 1.606,
+            "p_hybrid": 0.639,
+            "ev": 0.0262,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Premier League",
@@ -29,32 +42,6 @@
         },
         {
             "league": "Premier League",
-            "home_team": "Nottingham Forest",
-            "away_team": "Coventry City",
-            "commence_time": "2026-09-19T16:30:00Z",
-            "side": "away",
-            "line": 1.5,
-            "book": "fanduel",
-            "price": 1.357,
-            "p_hybrid": 0.7866,
-            "ev": 0.0674,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Premier League",
-            "home_team": "Bournemouth",
-            "away_team": "Liverpool",
-            "commence_time": "2026-09-20T13:00:00Z",
-            "side": "away",
-            "line": -0.5,
-            "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.5364,
-            "ev": 0.0729,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Premier League",
             "home_team": "Manchester City",
             "away_team": "Sunderland",
             "commence_time": "2026-09-20T13:00:00Z",
@@ -62,22 +49,9 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 2,
-            "p_hybrid": 0.548,
-            "ev": 0.096,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "La Liga",
-            "home_team": "Real Sociedad",
-            "away_team": "Atl\u00e9tico Madrid",
-            "commence_time": "2026-09-13T19:00:00Z",
-            "side": "away",
-            "line": -0.5,
-            "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.522,
-            "ev": 0.044,
-            "units": "2 Units (Moderate Edge)"
+            "p_hybrid": 0.5108,
+            "ev": 0.0216,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "La Liga",
@@ -88,74 +62,22 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 1.833,
-            "p_hybrid": 0.5727,
-            "ev": 0.0498,
+            "p_hybrid": 0.5725,
+            "ev": 0.0493,
             "units": "2 Units (Moderate Edge)"
         },
         {
-            "league": "La Liga",
-            "home_team": "Real Betis",
-            "away_team": "Getafe",
-            "commence_time": "2026-09-17T17:00:00Z",
-            "side": "away",
-            "line": 0.5,
+            "league": "Bundesliga",
+            "home_team": "Elversberg",
+            "away_team": "Bayern Munich",
+            "commence_time": "2026-09-13T15:30:00Z",
+            "side": "home",
+            "line": 2.5,
             "book": "draftkings",
             "price": 2,
-            "p_hybrid": 0.5431,
-            "ev": 0.0862,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Bundesliga",
-            "home_team": "VfB Stuttgart",
-            "away_team": "Borussia Dortmund",
-            "commence_time": "2026-09-19T16:30:00Z",
-            "side": "away",
-            "line": 0,
-            "book": "draftkings",
-            "price": 2.1,
-            "p_hybrid": 0.5293,
-            "ev": 0.1114,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Sassuolo",
-            "away_team": "Juventus",
-            "commence_time": "2026-09-13T18:45:00Z",
-            "side": "home",
-            "line": 0.5,
-            "book": "draftkings",
-            "price": 2.35,
-            "p_hybrid": 0.4617,
-            "ev": 0.085,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Como",
-            "away_team": "Parma",
-            "commence_time": "2026-09-14T16:30:00Z",
-            "side": "away",
-            "line": 1.5,
-            "book": "draftkings",
-            "price": 2.2,
-            "p_hybrid": 0.4916,
-            "ev": 0.0816,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Inter Milan",
-            "away_team": "Udinese",
-            "commence_time": "2026-09-14T18:45:00Z",
-            "side": "away",
-            "line": 1.5,
-            "book": "draftkings",
-            "price": 2.15,
-            "p_hybrid": 0.5063,
-            "ev": 0.0886,
-            "units": "3 Units (High Edge)"
+            "p_hybrid": 0.5167,
+            "ev": 0.0334,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Serie A",
@@ -195,6 +117,19 @@
             "p_hybrid": 0.4988,
             "ev": 0.0225,
             "units": "1 Unit (Standard Edge)"
+        },
+        {
+            "league": "Serie A",
+            "home_team": "Juventus",
+            "away_team": "Atalanta BC",
+            "commence_time": "2026-09-20T16:00:00Z",
+            "side": "away",
+            "line": 0.5,
+            "book": "draftkings",
+            "price": 2.3,
+            "p_hybrid": 0.46,
+            "ev": 0.0579,
+            "units": "2 Units (Moderate Edge)"
         }
     ]
 }
