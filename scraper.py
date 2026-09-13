@@ -289,9 +289,26 @@ def build_sharpapi_lookup(rows, stat_team_names):
 # Math: Poisson AH probability, de-vig, blending, staking
 # ============================================================
 def calculate_poisson_probability(lam_home, lam_away, line, side):
-    """Probability of covering an Asian Handicap line for `side`
-    ("home" or "away"), given goal expectancies. Handles pushes
-    (line falls exactly on a scoreline) as a half-win/half-refund."""
+    """Effective probability of covering an Asian Handicap line for `side`
+    ("home" or "away"), given goal expectancies. `line` is always
+    home-oriented (e.g. -0.5 = home favored by half a goal) regardless of
+    which side is being evaluated -- the function handles the sign
+    internally for both sides from that one value.
+
+    Quarter lines (-0.25, +0.75, etc.) are real compound bets: half the
+    stake settles at the line below, half at the line above, each with
+    its own independent win/push/loss outcome -- they are NOT the same
+    bet as the adjacent half line, even though a naive threshold check
+    would treat them identically. This decomposes any quarter line into
+    its two half-stake components and averages them, which also gives
+    the correct expected-return figure to use directly in ev = p*odds-1.
+    Whole and half lines (which can push) go through the direct
+    calculation, unchanged."""
+    remainder = round(line % 0.5, 6)
+    if abs(remainder - 0.25) < 1e-6:
+        return 0.5 * calculate_poisson_probability(lam_home, lam_away, line - 0.25, side) \
+             + 0.5 * calculate_poisson_probability(lam_home, lam_away, line + 0.25, side)
+
     max_goals = 8
     prob = 0.0
 
