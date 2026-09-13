@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-09-13T14:14:23.861962+00:00",
+    "last_updated": "2026-09-13T14:22:06.535604+00:00",
     "bets": [
         {
             "league": "Premier League",
@@ -10,8 +10,34 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 2.1,
-            "p_hybrid": 0.5148,
-            "ev": 0.0811,
+            "p_hybrid": 0.5135,
+            "ev": 0.0783,
+            "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Premier League",
+            "home_team": "Newcastle United",
+            "away_team": "Hull City",
+            "commence_time": "2026-09-19T14:00:00Z",
+            "side": "away",
+            "line": 1.5,
+            "book": "draftkings",
+            "price": 1.541,
+            "p_hybrid": 0.6702,
+            "ev": 0.0327,
+            "units": "1 Unit (Standard Edge)"
+        },
+        {
+            "league": "Premier League",
+            "home_team": "Nottingham Forest",
+            "away_team": "Coventry City",
+            "commence_time": "2026-09-19T16:30:00Z",
+            "side": "away",
+            "line": 1.5,
+            "book": "fanduel",
+            "price": 1.357,
+            "p_hybrid": 0.7866,
+            "ev": 0.0674,
             "units": "3 Units (High Edge)"
         },
         {
@@ -41,19 +67,6 @@
             "units": "3 Units (High Edge)"
         },
         {
-            "league": "Premier League",
-            "home_team": "Fulham",
-            "away_team": "Manchester United",
-            "commence_time": "2026-09-20T15:30:00Z",
-            "side": "away",
-            "line": -0.5,
-            "book": "draftkings",
-            "price": 1.909,
-            "p_hybrid": 0.5374,
-            "ev": 0.026,
-            "units": "1 Unit (Standard Edge)"
-        },
-        {
             "league": "La Liga",
             "home_team": "Real Sociedad",
             "away_team": "Atl\u00e9tico Madrid",
@@ -75,9 +88,9 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 1.833,
-            "p_hybrid": 0.5823,
-            "ev": 0.0673,
-            "units": "3 Units (High Edge)"
+            "p_hybrid": 0.5727,
+            "ev": 0.0498,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "La Liga",
@@ -88,35 +101,35 @@
             "line": 0.5,
             "book": "draftkings",
             "price": 2,
-            "p_hybrid": 0.518,
-            "ev": 0.0361,
-            "units": "1 Unit (Standard Edge)"
+            "p_hybrid": 0.5431,
+            "ev": 0.0862,
+            "units": "3 Units (High Edge)"
         },
         {
-            "league": "La Liga",
-            "home_team": "M\u00e1laga",
-            "away_team": "Villarreal",
-            "commence_time": "2026-09-17T19:30:00Z",
+            "league": "Bundesliga",
+            "home_team": "VfB Stuttgart",
+            "away_team": "Borussia Dortmund",
+            "commence_time": "2026-09-19T16:30:00Z",
             "side": "away",
-            "line": -0.5,
+            "line": 0,
             "book": "draftkings",
-            "price": 1.909,
-            "p_hybrid": 0.5609,
-            "ev": 0.0708,
+            "price": 2.1,
+            "p_hybrid": 0.5293,
+            "ev": 0.1114,
             "units": "3 Units (High Edge)"
         },
         {
             "league": "Serie A",
-            "home_team": "Torino",
-            "away_team": "AS Roma",
-            "commence_time": "2026-09-14T16:30:00Z",
-            "side": "away",
-            "line": -1,
+            "home_team": "Sassuolo",
+            "away_team": "Juventus",
+            "commence_time": "2026-09-13T18:45:00Z",
+            "side": "home",
+            "line": 0.5,
             "book": "draftkings",
-            "price": 1.952,
-            "p_hybrid": 0.5359,
-            "ev": 0.046,
-            "units": "2 Units (Moderate Edge)"
+            "price": 2.35,
+            "p_hybrid": 0.4617,
+            "ev": 0.085,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Serie A",
@@ -127,9 +140,9 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 2.2,
-            "p_hybrid": 0.4732,
-            "ev": 0.0411,
-            "units": "2 Units (Moderate Edge)"
+            "p_hybrid": 0.4916,
+            "ev": 0.0816,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Serie A",
@@ -140,9 +153,9 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 2.15,
-            "p_hybrid": 0.4842,
-            "ev": 0.041,
-            "units": "2 Units (Moderate Edge)"
+            "p_hybrid": 0.5063,
+            "ev": 0.0886,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Serie A",
@@ -159,29 +172,29 @@
         },
         {
             "league": "Serie A",
-            "home_team": "AS Roma",
-            "away_team": "Inter Milan",
-            "commence_time": "2026-09-19T16:00:00Z",
+            "home_team": "Frosinone",
+            "away_team": "Como",
+            "commence_time": "2026-09-20T13:00:00Z",
             "side": "home",
-            "line": 0,
+            "line": 1,
             "book": "draftkings",
             "price": 1.87,
-            "p_hybrid": 0.6088,
-            "ev": 0.1384,
-            "units": "3 Units (High Edge)"
+            "p_hybrid": 0.5629,
+            "ev": 0.0525,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "Serie A",
-            "home_team": "Juventus",
-            "away_team": "Atalanta BC",
-            "commence_time": "2026-09-20T16:00:00Z",
-            "side": "away",
-            "line": 0.5,
+            "home_team": "Parma",
+            "away_team": "Genoa",
+            "commence_time": "2026-09-20T13:00:00Z",
+            "side": "home",
+            "line": 0,
             "book": "draftkings",
-            "price": 2.3,
-            "p_hybrid": 0.4706,
-            "ev": 0.0823,
-            "units": "3 Units (High Edge)"
+            "price": 2.05,
+            "p_hybrid": 0.4988,
+            "ev": 0.0225,
+            "units": "1 Unit (Standard Edge)"
         }
     ]
 }
