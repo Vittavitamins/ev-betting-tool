@@ -61,6 +61,13 @@ LEAGUE_BASELINE_GOALS = 1.45  # average goals per team per match, fallback
 # requiring DK specifically on every single game.
 TARGET_BOOKS = ["draftkings", "fanduel", "betmgm", "betrivers"]
 
+# Bounds for each team's attack/defense rating relative to league average
+# (1.0 = exactly average). Keeps a small early-season sample from producing
+# an implausible rating -- e.g. one 4-0 win in a team's first 3 games of
+# the season shouldn't be read as "this team scores 3x the league average".
+RATING_CLIP_MIN = 0.5
+RATING_CLIP_MAX = 1.5
+
 # football-data.co.uk uses short/abbreviated club names; that's the space
 # every incoming name needs to reconcile into, since it's what
 # fetch_historical_stats() keys team_stats by. Different odds providers use
@@ -152,6 +159,11 @@ def fetch_historical_stats(league_name):
             if total_games > 0 and home_goals_avg > 0 and away_goals_avg > 0:
                 att_strength = (goals_scored / total_games) / home_goals_avg
                 def_strength = (goals_conceded / total_games) / away_goals_avg
+                # Clip to a sane band so a fluke result in a small early-season
+                # sample can't swing a rating to an implausible extreme (e.g.
+                # one big win in 3 games inflating attack to 3x league average).
+                att_strength = min(max(att_strength, RATING_CLIP_MIN), RATING_CLIP_MAX)
+                def_strength = min(max(def_strength, RATING_CLIP_MIN), RATING_CLIP_MAX)
             else:
                 att_strength, def_strength = 1.0, 1.0
 
