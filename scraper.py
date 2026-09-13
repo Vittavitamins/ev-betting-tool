@@ -459,7 +459,12 @@ def main():
                 pin_home_price, pin_away_price
             )
 
-            # Bottom-up probabilities at both books' lines (may differ)
+            # Bottom-up probabilities at both books' lines (may differ).
+            # calculate_poisson_probability() always takes a HOME-oriented
+            # line (e.g. -0.5 means home favored by half a goal) for both
+            # sides -- it internally handles which side that favors. Passing
+            # a negated line for "away" here was the bug: it double-flipped
+            # the win condition and made every away-side probability wrong.
             p_bu_home_at_pin_line = calculate_poisson_probability(
                 lam_home, lam_away, pin_line, "home"
             )
@@ -467,10 +472,10 @@ def main():
                 lam_home, lam_away, dk_line, "home"
             )
             p_bu_away_at_pin_line = calculate_poisson_probability(
-                lam_home, lam_away, -pin_line, "away"
+                lam_home, lam_away, pin_line, "away"
             )
             p_bu_away_at_dk_line = calculate_poisson_probability(
-                lam_home, lam_away, dk_away_line, "away"
+                lam_home, lam_away, -dk_away_line, "away"
             )
 
             # If DK's line differs from Pinnacle's, shift the sharp fair
@@ -515,7 +520,7 @@ def main():
                             "away_team": away_team,
                             "commence_time": event["commence_time"],
                             "side": side,
-                            "line": dk_line if side == "home" else -dk_line,
+                            "line": dk_line if side == "home" else dk_away_line,
                             "book": target_book_key,
                             "price": dk_price,
                             "p_hybrid": round(p_hybrid, 4),
