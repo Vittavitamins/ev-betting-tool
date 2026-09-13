@@ -311,9 +311,13 @@ def devig_pinnacle(odds_side_a, odds_side_b):
 
 def time_decay_blend(p_sharp, p_bottom_up, hours_to_kickoff):
     """Blends sharp-market and bottom-up probabilities, shifting weight
-    toward the sharp market as kickoff approaches."""
+    toward the sharp market as kickoff approaches. Leans heavily on the
+    sharp market even far from kickoff (70% at 96+ hours out) since the
+    bottom-up model's current-season-only ratings are noisy early in a
+    season with only a handful of games played -- shifts to 95% sharp /
+    5% bottom-up right at kickoff, same as before."""
     max_hours = 96.0
-    weight_sharp = 0.95 - (min(hours_to_kickoff, max_hours) / max_hours) * 0.75
+    weight_sharp = 0.95 - (min(hours_to_kickoff, max_hours) / max_hours) * 0.25
     weight_bottom = 1.0 - weight_sharp
     return (weight_sharp * p_sharp) + (weight_bottom * p_bottom_up)
 
