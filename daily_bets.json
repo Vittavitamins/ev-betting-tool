@@ -1,31 +1,31 @@
 {
-    "last_updated": "2026-09-20T10:11:18.824531+00:00",
+    "last_updated": "2026-09-21T10:11:14.953380+00:00",
     "bets": [
         {
             "league": "Premier League",
-            "home_team": "Sunderland",
-            "away_team": "Brighton and Hove Albion",
+            "home_team": "Aston Villa",
+            "away_team": "Brentford",
             "commence_time": "2026-10-10T14:00:00Z",
-            "side": "home",
-            "line": -1.5,
-            "book": "fanduel",
-            "price": 5.4,
-            "p_hybrid": 0.2072,
-            "ev": 0.1191,
+            "side": "away",
+            "line": 0,
+            "book": "draftkings",
+            "price": 1.8,
+            "p_hybrid": 0.6136,
+            "ev": 0.1046,
             "units": "3 Units (High Edge)"
         },
         {
-            "league": "Premier League",
-            "home_team": "Hull City",
-            "away_team": "Everton",
-            "commence_time": "2026-10-11T13:00:00Z",
+            "league": "La Liga",
+            "home_team": "Barcelona",
+            "away_team": "Getafe",
+            "commence_time": "2026-10-10T16:30:00Z",
             "side": "away",
-            "line": 1.5,
-            "book": "fanduel",
-            "price": 1.056,
-            "p_hybrid": 0.9662,
-            "ev": 0.0203,
-            "units": "1 Unit (Standard Edge)"
+            "line": 3.5,
+            "book": "draftkings",
+            "price": 1.606,
+            "p_hybrid": 0.6653,
+            "ev": 0.0684,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Bundesliga",
@@ -36,8 +36,8 @@
             "line": 0.5,
             "book": "draftkings",
             "price": 1.625,
-            "p_hybrid": 0.6461,
-            "ev": 0.0499,
+            "p_hybrid": 0.6443,
+            "ev": 0.047,
             "units": "2 Units (Moderate Edge)"
         },
         {
@@ -49,9 +49,9 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 1.833,
-            "p_hybrid": 0.5743,
-            "ev": 0.0528,
-            "units": "2 Units (Moderate Edge)"
+            "p_hybrid": 0.5653,
+            "ev": 0.0362,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Bundesliga",
@@ -87,23 +87,10 @@
             "side": "home",
             "line": -0.5,
             "book": "draftkings",
-            "price": 1.606,
-            "p_hybrid": 0.636,
-            "ev": 0.0214,
+            "price": 1.588,
+            "p_hybrid": 0.6523,
+            "ev": 0.0358,
             "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Fiorentina",
-            "away_team": "Napoli",
-            "commence_time": "2026-09-20T10:30:00Z",
-            "side": "away",
-            "line": -1.5,
-            "book": "fanduel",
-            "price": 4.9,
-            "p_hybrid": 0.2229,
-            "ev": 0.0921,
-            "units": "3 Units (High Edge)"
         }
     ]
 }
