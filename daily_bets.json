@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-09-22T10:12:41.943756+00:00",
+    "last_updated": "2026-09-23T10:12:16.756033+00:00",
     "bets": [
         {
             "league": "Premier League",
@@ -10,8 +10,8 @@
             "line": 0,
             "book": "draftkings",
             "price": 1.769,
-            "p_hybrid": 0.6285,
-            "ev": 0.1119,
+            "p_hybrid": 0.6195,
+            "ev": 0.0958,
             "units": "3 Units (High Edge)"
         },
         {
@@ -59,11 +59,24 @@
             "away_team": "Coventry City",
             "commence_time": "2026-10-19T19:00:00Z",
             "side": "away",
-            "line": 1,
+            "line": 1.5,
             "book": "draftkings",
-            "price": 1.952,
-            "p_hybrid": 0.5476,
-            "ev": 0.0689,
+            "price": 1.556,
+            "p_hybrid": 0.6655,
+            "ev": 0.0355,
+            "units": "1 Unit (Standard Edge)"
+        },
+        {
+            "league": "La Liga",
+            "home_team": "Barcelona",
+            "away_team": "Getafe",
+            "commence_time": "2026-10-10T16:30:00Z",
+            "side": "away",
+            "line": 3.5,
+            "book": "fanduel",
+            "price": 1.641,
+            "p_hybrid": 0.6668,
+            "ev": 0.0943,
             "units": "3 Units (High Edge)"
         },
         {
@@ -81,29 +94,107 @@
         },
         {
             "league": "Bundesliga",
-            "home_team": "Union Berlin",
-            "away_team": "Elversberg",
-            "commence_time": "2026-10-10T13:30:00Z",
-            "side": "away",
-            "line": 0.5,
-            "book": "draftkings",
-            "price": 1.625,
-            "p_hybrid": 0.6514,
-            "ev": 0.0585,
-            "units": "2 Units (Moderate Edge)"
-        },
-        {
-            "league": "Bundesliga",
             "home_team": "TSG Hoffenheim",
             "away_team": "Hamburger SV",
             "commence_time": "2026-10-10T13:30:00Z",
             "side": "away",
             "line": 1.5,
-            "book": "draftkings",
-            "price": 1.833,
-            "p_hybrid": 0.5842,
-            "ev": 0.0709,
+            "book": "fanduel",
+            "price": 1.82,
+            "p_hybrid": 0.6045,
+            "ev": 0.1002,
             "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Bundesliga",
+            "home_team": "SC Paderborn",
+            "away_team": "VfB Stuttgart",
+            "commence_time": "2026-10-10T13:30:00Z",
+            "side": "home",
+            "line": 1.5,
+            "book": "fanduel",
+            "price": 1.549,
+            "p_hybrid": 0.6858,
+            "ev": 0.0624,
+            "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Bundesliga",
+            "home_team": "SC Freiburg",
+            "away_team": "FC Schalke 04",
+            "commence_time": "2026-10-11T15:30:00Z",
+            "side": "away",
+            "line": 1.5,
+            "book": "fanduel",
+            "price": 1.51,
+            "p_hybrid": 0.6888,
+            "ev": 0.0401,
+            "units": "1 Unit (Standard Edge)"
+        },
+        {
+            "league": "Serie A",
+            "home_team": "Inter Milan",
+            "away_team": "Parma",
+            "commence_time": "2026-10-10T16:00:00Z",
+            "side": "away",
+            "line": 2.5,
+            "book": "fanduel",
+            "price": 1.794,
+            "p_hybrid": 0.6134,
+            "ev": 0.1005,
+            "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Serie A",
+            "home_team": "Napoli",
+            "away_team": "Frosinone",
+            "commence_time": "2026-10-10T18:45:00Z",
+            "side": "away",
+            "line": 1.5,
+            "book": "fanduel",
+            "price": 1.658,
+            "p_hybrid": 0.6647,
+            "ev": 0.1021,
+            "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Serie A",
+            "home_team": "Lazio",
+            "away_team": "Monza",
+            "commence_time": "2026-10-11T13:00:00Z",
+            "side": "home",
+            "line": -1.5,
+            "book": "fanduel",
+            "price": 2.94,
+            "p_hybrid": 0.379,
+            "ev": 0.1142,
+            "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Serie A",
+            "home_team": "Sassuolo",
+            "away_team": "AC Milan",
+            "commence_time": "2026-10-11T16:00:00Z",
+            "side": "away",
+            "line": -1.5,
+            "book": "fanduel",
+            "price": 3,
+            "p_hybrid": 0.3599,
+            "ev": 0.0797,
+            "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Serie A",
+            "home_team": "Cagliari",
+            "away_team": "Juventus",
+            "commence_time": "2026-10-11T18:45:00Z",
+            "side": "home",
+            "line": 1.5,
+            "book": "fanduel",
+            "price": 1.476,
+            "p_hybrid": 0.7105,
+            "ev": 0.0487,
+            "units": "2 Units (Moderate Edge)"
         }
     ]
 }
