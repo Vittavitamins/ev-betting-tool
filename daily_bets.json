@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-09-29T10:14:14.091033+00:00",
+    "last_updated": "2026-09-30T10:14:49.671837+00:00",
     "bets": [
         {
             "league": "Premier League",
@@ -36,22 +36,9 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 1.952,
-            "p_hybrid": 0.5319,
-            "ev": 0.0382,
-            "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "Premier League",
-            "home_team": "Brighton and Hove Albion",
-            "away_team": "Crystal Palace",
-            "commence_time": "2026-10-18T13:00:00Z",
-            "side": "home",
-            "line": -1.5,
-            "book": "draftkings",
-            "price": 2.3,
-            "p_hybrid": 0.4812,
-            "ev": 0.1067,
-            "units": "3 Units (High Edge)"
+            "p_hybrid": 0.5337,
+            "ev": 0.0418,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "Premier League",
@@ -179,8 +166,8 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 1.645,
-            "p_hybrid": 0.6425,
-            "ev": 0.0569,
+            "p_hybrid": 0.6389,
+            "ev": 0.0509,
             "units": "2 Units (Moderate Edge)"
         },
         {
@@ -191,9 +178,9 @@
             "side": "away",
             "line": 0.5,
             "book": "draftkings",
-            "price": 1.952,
-            "p_hybrid": 0.5268,
-            "ev": 0.0283,
+            "price": 2,
+            "p_hybrid": 0.5139,
+            "ev": 0.0279,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -237,19 +224,6 @@
         },
         {
             "league": "Serie A",
-            "home_team": "Lazio",
-            "away_team": "Monza",
-            "commence_time": "2026-10-11T13:00:00Z",
-            "side": "home",
-            "line": -1.5,
-            "book": "fanduel",
-            "price": 2.9,
-            "p_hybrid": 0.3903,
-            "ev": 0.1319,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
             "home_team": "Sassuolo",
             "away_team": "AC Milan",
             "commence_time": "2026-10-11T16:00:00Z",
@@ -286,19 +260,6 @@
             "p_hybrid": 0.4835,
             "ev": 0.1363,
             "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Venezia",
-            "away_team": "Napoli",
-            "commence_time": "2026-10-17T13:00:00Z",
-            "side": "away",
-            "line": -0.5,
-            "book": "draftkings",
-            "price": 1.69,
-            "p_hybrid": 0.6037,
-            "ev": 0.0202,
-            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Serie A",
