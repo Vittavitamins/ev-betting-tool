@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-09-30T10:14:49.671837+00:00",
+    "last_updated": "2026-10-01T10:15:29.424543+00:00",
     "bets": [
         {
             "league": "Premier League",
@@ -23,9 +23,9 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 1.952,
-            "p_hybrid": 0.5482,
-            "ev": 0.0701,
-            "units": "3 Units (High Edge)"
+            "p_hybrid": 0.5428,
+            "ev": 0.0595,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "Premier League",
@@ -140,8 +140,8 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 1.714,
-            "p_hybrid": 0.6145,
-            "ev": 0.0533,
+            "p_hybrid": 0.6136,
+            "ev": 0.0517,
             "units": "2 Units (Moderate Edge)"
         },
         {
@@ -204,9 +204,9 @@
             "side": "away",
             "line": 1.5,
             "book": "draftkings",
-            "price": 1.645,
-            "p_hybrid": 0.6638,
-            "ev": 0.092,
+            "price": 1.667,
+            "p_hybrid": 0.6602,
+            "ev": 0.1005,
             "units": "3 Units (High Edge)"
         },
         {
@@ -224,6 +224,19 @@
         },
         {
             "league": "Serie A",
+            "home_team": "Lazio",
+            "away_team": "Monza",
+            "commence_time": "2026-10-11T13:00:00Z",
+            "side": "home",
+            "line": -1.5,
+            "book": "fanduel",
+            "price": 2.78,
+            "p_hybrid": 0.3948,
+            "ev": 0.0975,
+            "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Serie A",
             "home_team": "Sassuolo",
             "away_team": "AC Milan",
             "commence_time": "2026-10-11T16:00:00Z",
@@ -231,8 +244,8 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 1.8,
-            "p_hybrid": 0.5758,
-            "ev": 0.0364,
+            "p_hybrid": 0.5751,
+            "ev": 0.0353,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -283,8 +296,8 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 2,
-            "p_hybrid": 0.5432,
-            "ev": 0.0865,
+            "p_hybrid": 0.5602,
+            "ev": 0.1205,
             "units": "3 Units (High Edge)"
         },
         {
@@ -309,8 +322,8 @@
             "line": 0.5,
             "book": "draftkings",
             "price": 2.25,
-            "p_hybrid": 0.5014,
-            "ev": 0.1282,
+            "p_hybrid": 0.5068,
+            "ev": 0.1402,
             "units": "3 Units (High Edge)"
         }
     ]
