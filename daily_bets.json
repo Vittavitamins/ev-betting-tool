@@ -1,19 +1,6 @@
 {
-    "last_updated": "2026-10-28T16:28:38.480990+00:00",
+    "last_updated": "2026-10-29T16:39:31.552609+00:00",
     "bets": [
-        {
-            "league": "Premier League",
-            "home_team": "Chelsea",
-            "away_team": "Manchester United",
-            "commence_time": "2026-10-31T12:30:00Z",
-            "side": "home",
-            "line": -1.5,
-            "book": "fanduel",
-            "price": 2.98,
-            "p_hybrid": 0.3438,
-            "ev": 0.0246,
-            "units": "1 Unit (Standard Edge)"
-        },
         {
             "league": "Premier League",
             "home_team": "Manchester City",
@@ -22,23 +9,10 @@
             "side": "away",
             "line": 0.5,
             "book": "draftkings",
-            "price": 2.2,
-            "p_hybrid": 0.4916,
-            "ev": 0.0815,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Premier League",
-            "home_team": "Arsenal",
-            "away_team": "Hull City",
-            "commence_time": "2026-11-07T15:00:00Z",
-            "side": "away",
-            "line": 2.5,
-            "book": "draftkings",
-            "price": 1.513,
-            "p_hybrid": 0.6755,
-            "ev": 0.022,
-            "units": "1 Unit (Standard Edge)"
+            "price": 2.25,
+            "p_hybrid": 0.4653,
+            "ev": 0.0468,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "Premier League",
@@ -55,41 +29,15 @@
         },
         {
             "league": "La Liga",
-            "home_team": "Villarreal",
-            "away_team": "Espanyol",
-            "commence_time": "2026-10-30T20:00:00Z",
-            "side": "away",
-            "line": 1.5,
-            "book": "fanduel",
-            "price": 1.725,
-            "p_hybrid": 0.5973,
-            "ev": 0.0304,
-            "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "La Liga",
-            "home_team": "Rayo Vallecano",
-            "away_team": "Celta Vigo",
-            "commence_time": "2026-10-31T15:15:00Z",
-            "side": "away",
-            "line": 0.5,
-            "book": "draftkings",
-            "price": 1.571,
-            "p_hybrid": 0.6575,
-            "ev": 0.0329,
-            "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "La Liga",
             "home_team": "Barcelona",
             "away_team": "Alav\u00e9s",
             "commence_time": "2026-10-31T20:00:00Z",
             "side": "away",
             "line": 2.5,
-            "book": "fanduel",
-            "price": 1.909,
-            "p_hybrid": 0.5612,
-            "ev": 0.0714,
+            "book": "draftkings",
+            "price": 2,
+            "p_hybrid": 0.5485,
+            "ev": 0.0971,
             "units": "3 Units (High Edge)"
         },
         {
@@ -106,16 +54,16 @@
             "units": "1 Unit (Standard Edge)"
         },
         {
-            "league": "La Liga",
-            "home_team": "Valencia",
-            "away_team": "Real Madrid",
-            "commence_time": "2026-11-07T20:00:00Z",
-            "side": "away",
-            "line": -1.5,
+            "league": "Bundesliga",
+            "home_team": "Werder Bremen",
+            "away_team": "TSG Hoffenheim",
+            "commence_time": "2026-10-31T14:30:00Z",
+            "side": "home",
+            "line": 0,
             "book": "draftkings",
-            "price": 2.05,
-            "p_hybrid": 0.5041,
-            "ev": 0.0334,
+            "price": 2.15,
+            "p_hybrid": 0.4753,
+            "ev": 0.0219,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -125,11 +73,24 @@
             "commence_time": "2026-10-31T17:30:00Z",
             "side": "away",
             "line": 1.5,
-            "book": "fanduel",
-            "price": 1.909,
-            "p_hybrid": 0.5617,
-            "ev": 0.0722,
+            "book": "draftkings",
+            "price": 2.05,
+            "p_hybrid": 0.528,
+            "ev": 0.0824,
             "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Bundesliga",
+            "home_team": "Borussia Dortmund",
+            "away_team": "Elversberg",
+            "commence_time": "2026-11-07T14:30:00Z",
+            "side": "away",
+            "line": 1.5,
+            "book": "draftkings",
+            "price": 2.1,
+            "p_hybrid": 0.4935,
+            "ev": 0.0364,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Bundesliga",
@@ -139,10 +100,10 @@
             "side": "home",
             "line": 0.5,
             "book": "draftkings",
-            "price": 1.69,
+            "price": 1.667,
             "p_hybrid": 0.6221,
-            "ev": 0.0514,
-            "units": "2 Units (Moderate Edge)"
+            "ev": 0.0371,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Bundesliga",
@@ -153,8 +114,8 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 1.667,
-            "p_hybrid": 0.6452,
-            "ev": 0.0755,
+            "p_hybrid": 0.6524,
+            "ev": 0.0876,
             "units": "3 Units (High Edge)"
         },
         {
@@ -165,9 +126,9 @@
             "side": "away",
             "line": 1,
             "book": "draftkings",
-            "price": 1.8,
+            "price": 1.769,
             "p_hybrid": 0.6027,
-            "ev": 0.0848,
+            "ev": 0.0662,
             "units": "3 Units (High Edge)"
         },
         {
@@ -176,11 +137,11 @@
             "away_team": "AS Roma",
             "commence_time": "2026-10-31T17:00:00Z",
             "side": "away",
-            "line": -1,
+            "line": -1.5,
             "book": "draftkings",
-            "price": 1.952,
-            "p_hybrid": 0.5654,
-            "ev": 0.1037,
+            "price": 2.45,
+            "p_hybrid": 0.4425,
+            "ev": 0.084,
             "units": "3 Units (High Edge)"
         },
         {
@@ -191,23 +152,10 @@
             "side": "away",
             "line": 0.5,
             "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.5303,
-            "ev": 0.0607,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Sassuolo",
-            "away_team": "Fiorentina",
-            "commence_time": "2026-11-02T17:30:00Z",
-            "side": "home",
-            "line": 0,
-            "book": "draftkings",
-            "price": 2.05,
-            "p_hybrid": 0.5188,
-            "ev": 0.0636,
-            "units": "3 Units (High Edge)"
+            "price": 1.645,
+            "p_hybrid": 0.6221,
+            "ev": 0.0233,
+            "units": "1 Unit (Standard Edge)"
         }
     ]
 }
