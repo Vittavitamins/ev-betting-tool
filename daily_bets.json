@@ -1,18 +1,18 @@
 {
-    "last_updated": "2026-10-29T16:39:31.552609+00:00",
+    "last_updated": "2026-10-30T16:35:00.331871+00:00",
     "bets": [
         {
             "league": "Premier League",
-            "home_team": "Manchester City",
-            "away_team": "Brighton and Hove Albion",
-            "commence_time": "2026-10-31T15:00:00Z",
-            "side": "away",
-            "line": 0.5,
-            "book": "draftkings",
-            "price": 2.25,
-            "p_hybrid": 0.4653,
-            "ev": 0.0468,
-            "units": "2 Units (Moderate Edge)"
+            "home_team": "Chelsea",
+            "away_team": "Manchester United",
+            "commence_time": "2026-10-31T12:30:00Z",
+            "side": "home",
+            "line": -1.5,
+            "book": "fanduel",
+            "price": 3.4,
+            "p_hybrid": 0.3239,
+            "ev": 0.1014,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Premier League",
@@ -22,9 +22,9 @@
             "side": "away",
             "line": -0.5,
             "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.5513,
-            "ev": 0.1026,
+            "price": 1.952,
+            "p_hybrid": 0.554,
+            "ev": 0.0815,
             "units": "3 Units (High Edge)"
         },
         {
@@ -35,10 +35,10 @@
             "side": "away",
             "line": 2.5,
             "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.5485,
-            "ev": 0.0971,
-            "units": "3 Units (High Edge)"
+            "price": 1.952,
+            "p_hybrid": 0.5425,
+            "ev": 0.059,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "La Liga",
@@ -52,32 +52,6 @@
             "p_hybrid": 0.4981,
             "ev": 0.0211,
             "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "Bundesliga",
-            "home_team": "Werder Bremen",
-            "away_team": "TSG Hoffenheim",
-            "commence_time": "2026-10-31T14:30:00Z",
-            "side": "home",
-            "line": 0,
-            "book": "draftkings",
-            "price": 2.15,
-            "p_hybrid": 0.4753,
-            "ev": 0.0219,
-            "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "Bundesliga",
-            "home_team": "Bayern Munich",
-            "away_team": "Borussia Dortmund",
-            "commence_time": "2026-10-31T17:30:00Z",
-            "side": "away",
-            "line": 1.5,
-            "book": "draftkings",
-            "price": 2.05,
-            "p_hybrid": 0.528,
-            "ev": 0.0824,
-            "units": "3 Units (High Edge)"
         },
         {
             "league": "Bundesliga",
@@ -100,9 +74,9 @@
             "side": "home",
             "line": 0.5,
             "book": "draftkings",
-            "price": 1.667,
-            "p_hybrid": 0.6221,
-            "ev": 0.0371,
+            "price": 1.69,
+            "p_hybrid": 0.6148,
+            "ev": 0.0391,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -130,32 +104,6 @@
             "p_hybrid": 0.6027,
             "ev": 0.0662,
             "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Udinese",
-            "away_team": "AS Roma",
-            "commence_time": "2026-10-31T17:00:00Z",
-            "side": "away",
-            "line": -1.5,
-            "book": "draftkings",
-            "price": 2.45,
-            "p_hybrid": 0.4425,
-            "ev": 0.084,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Juventus",
-            "away_team": "Napoli",
-            "commence_time": "2026-11-01T19:45:00Z",
-            "side": "away",
-            "line": 0.5,
-            "book": "draftkings",
-            "price": 1.645,
-            "p_hybrid": 0.6221,
-            "ev": 0.0233,
-            "units": "1 Unit (Standard Edge)"
         }
     ]
 }
