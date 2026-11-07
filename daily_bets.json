@@ -1,6 +1,19 @@
 {
-    "last_updated": "2026-11-06T17:14:13.428083+00:00",
+    "last_updated": "2026-11-07T16:08:20.608439+00:00",
     "bets": [
+        {
+            "league": "La Liga",
+            "home_team": "Athletic Bilbao",
+            "away_team": "Espanyol",
+            "commence_time": "2026-11-20T20:00:00Z",
+            "side": "away",
+            "line": 1.5,
+            "book": "fanduel",
+            "price": 1.568,
+            "p_hybrid": 0.6586,
+            "ev": 0.0327,
+            "units": "1 Unit (Standard Edge)"
+        },
         {
             "league": "La Liga",
             "home_team": "Real Madrid",
@@ -16,16 +29,16 @@
         },
         {
             "league": "Bundesliga",
-            "home_team": "TSG Hoffenheim",
-            "away_team": "FC Schalke 04",
-            "commence_time": "2026-11-08T18:30:00Z",
+            "home_team": "Bayern Munich",
+            "away_team": "1. FC K\u00f6ln",
+            "commence_time": "2026-11-20T19:30:00Z",
             "side": "away",
-            "line": 1,
-            "book": "draftkings",
-            "price": 1.833,
-            "p_hybrid": 0.5744,
-            "ev": 0.0528,
-            "units": "2 Units (Moderate Edge)"
+            "line": 2.5,
+            "book": "fanduel",
+            "price": 2.1,
+            "p_hybrid": 0.5096,
+            "ev": 0.0701,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Bundesliga",
@@ -55,19 +68,6 @@
         },
         {
             "league": "Bundesliga",
-            "home_team": "Union Berlin",
-            "away_team": "RB Leipzig",
-            "commence_time": "2026-11-21T14:30:00Z",
-            "side": "away",
-            "line": -0.75,
-            "book": "draftkings",
-            "price": 1.8,
-            "p_hybrid": 0.5876,
-            "ev": 0.0577,
-            "units": "2 Units (Moderate Edge)"
-        },
-        {
-            "league": "Bundesliga",
             "home_team": "FC Schalke 04",
             "away_team": "VfB Stuttgart",
             "commence_time": "2026-11-21T17:30:00Z",
@@ -81,19 +81,6 @@
         },
         {
             "league": "Serie A",
-            "home_team": "Napoli",
-            "away_team": "Lazio",
-            "commence_time": "2026-11-08T11:30:00Z",
-            "side": "away",
-            "line": 0.5,
-            "book": "draftkings",
-            "price": 1.645,
-            "p_hybrid": 0.6226,
-            "ev": 0.0242,
-            "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "Serie A",
             "home_team": "Lazio",
             "away_team": "Lecce",
             "commence_time": "2026-11-21T14:00:00Z",
@@ -104,6 +91,19 @@
             "p_hybrid": 0.5395,
             "ev": 0.079,
             "units": "3 Units (High Edge)"
+        },
+        {
+            "league": "Serie A",
+            "home_team": "Napoli",
+            "away_team": "Torino",
+            "commence_time": "2026-11-21T19:45:00Z",
+            "side": "away",
+            "line": 1.25,
+            "book": "draftkings",
+            "price": 1.8,
+            "p_hybrid": 0.5676,
+            "ev": 0.0218,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Serie A",
