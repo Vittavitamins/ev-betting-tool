@@ -1,30 +1,43 @@
 {
-    "last_updated": "2026-11-09T20:27:30.092419+00:00",
+    "last_updated": "2026-11-10T17:31:59.672976+00:00",
     "bets": [
+        {
+            "league": "Premier League",
+            "home_team": "Manchester United",
+            "away_team": "Brentford",
+            "commence_time": "2026-11-28T15:00:00Z",
+            "side": "away",
+            "line": 0.5,
+            "book": "draftkings",
+            "price": 1.714,
+            "p_hybrid": 0.607,
+            "ev": 0.0405,
+            "units": "1 Unit (Standard Edge)"
+        },
+        {
+            "league": "Premier League",
+            "home_team": "Crystal Palace",
+            "away_team": "Hull City",
+            "commence_time": "2026-11-29T14:05:00Z",
+            "side": "away",
+            "line": 0.5,
+            "book": "draftkings",
+            "price": 1.87,
+            "p_hybrid": 0.5914,
+            "ev": 0.106,
+            "units": "3 Units (High Edge)"
+        },
         {
             "league": "La Liga",
             "home_team": "Real Madrid",
             "away_team": "Celta Vigo",
             "commence_time": "2026-11-21T20:00:00Z",
             "side": "away",
-            "line": 1.5,
+            "line": 2,
             "book": "draftkings",
-            "price": 2.2,
-            "p_hybrid": 0.4942,
-            "ev": 0.0873,
-            "units": "3 Units (High Edge)"
-        },
-        {
-            "league": "La Liga",
-            "home_team": "Barcelona",
-            "away_team": "Villarreal",
-            "commence_time": "2026-11-22T13:00:00Z",
-            "side": "away",
-            "line": 2.5,
-            "book": "draftkings",
-            "price": 1.571,
-            "p_hybrid": 0.6556,
-            "ev": 0.03,
+            "price": 1.769,
+            "p_hybrid": 0.5878,
+            "ev": 0.0398,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -41,6 +54,19 @@
             "units": "3 Units (High Edge)"
         },
         {
+            "league": "Bundesliga",
+            "home_team": "Union Berlin",
+            "away_team": "RB Leipzig",
+            "commence_time": "2026-11-21T14:30:00Z",
+            "side": "away",
+            "line": -1,
+            "book": "draftkings",
+            "price": 1.87,
+            "p_hybrid": 0.5649,
+            "ev": 0.0563,
+            "units": "2 Units (Moderate Edge)"
+        },
+        {
             "league": "Serie A",
             "home_team": "Como",
             "away_team": "Cagliari",
@@ -48,10 +74,10 @@
             "side": "away",
             "line": 1.5,
             "book": "draftkings",
-            "price": 1.833,
-            "p_hybrid": 0.5626,
-            "ev": 0.0312,
-            "units": "1 Unit (Standard Edge)"
+            "price": 1.87,
+            "p_hybrid": 0.5581,
+            "ev": 0.0436,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "Serie A",
@@ -88,8 +114,8 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 1.588,
-            "p_hybrid": 0.6449,
-            "ev": 0.0241,
+            "p_hybrid": 0.6485,
+            "ev": 0.0299,
             "units": "1 Unit (Standard Edge)"
         }
     ]
