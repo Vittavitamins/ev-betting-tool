@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-11-10T17:31:59.672976+00:00",
+    "last_updated": "2026-11-11T17:44:37.711040+00:00",
     "bets": [
         {
             "league": "Premier League",
@@ -9,9 +9,9 @@
             "side": "away",
             "line": 0.5,
             "book": "draftkings",
-            "price": 1.714,
-            "p_hybrid": 0.607,
-            "ev": 0.0405,
+            "price": 1.741,
+            "p_hybrid": 0.5901,
+            "ev": 0.0273,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -41,17 +41,30 @@
             "units": "1 Unit (Standard Edge)"
         },
         {
+            "league": "La Liga",
+            "home_team": "Getafe",
+            "away_team": "Atl\u00e9tico Madrid",
+            "commence_time": "2026-11-22T20:00:00Z",
+            "side": "away",
+            "line": -1,
+            "book": "draftkings",
+            "price": 2,
+            "p_hybrid": 0.5137,
+            "ev": 0.0274,
+            "units": "1 Unit (Standard Edge)"
+        },
+        {
             "league": "Bundesliga",
             "home_team": "Elversberg",
             "away_team": "SC Freiburg",
             "commence_time": "2026-11-21T14:30:00Z",
             "side": "away",
-            "line": -0.5,
-            "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.5337,
-            "ev": 0.0673,
-            "units": "3 Units (High Edge)"
+            "line": -1.5,
+            "book": "fanduel",
+            "price": 3.4,
+            "p_hybrid": 0.3051,
+            "ev": 0.0374,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Bundesliga",
@@ -74,10 +87,10 @@
             "side": "away",
             "line": 1.5,
             "book": "draftkings",
-            "price": 1.87,
+            "price": 1.909,
             "p_hybrid": 0.5581,
-            "ev": 0.0436,
-            "units": "2 Units (Moderate Edge)"
+            "ev": 0.0654,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Serie A",
@@ -98,12 +111,12 @@
             "away_team": "Torino",
             "commence_time": "2026-11-21T19:45:00Z",
             "side": "away",
-            "line": 1.5,
+            "line": 1,
             "book": "draftkings",
-            "price": 1.588,
-            "p_hybrid": 0.6443,
-            "ev": 0.0231,
-            "units": "1 Unit (Standard Edge)"
+            "price": 2,
+            "p_hybrid": 0.5252,
+            "ev": 0.0504,
+            "units": "2 Units (Moderate Edge)"
         },
         {
             "league": "Serie A",
