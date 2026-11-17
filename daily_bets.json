@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-11-16T20:02:37.297140+00:00",
+    "last_updated": "2026-11-17T18:59:49.203397+00:00",
     "bets": [
         {
             "league": "Premier League",
@@ -10,8 +10,8 @@
             "line": 1,
             "book": "draftkings",
             "price": 1.87,
-            "p_hybrid": 0.5502,
-            "ev": 0.029,
+            "p_hybrid": 0.5479,
+            "ev": 0.0247,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -42,28 +42,15 @@
         },
         {
             "league": "La Liga",
-            "home_team": "Athletic Bilbao",
-            "away_team": "Espanyol",
-            "commence_time": "2026-11-20T20:00:00Z",
-            "side": "away",
-            "line": 1,
-            "book": "draftkings",
-            "price": 1.952,
-            "p_hybrid": 0.5351,
-            "ev": 0.0444,
-            "units": "2 Units (Moderate Edge)"
-        },
-        {
-            "league": "La Liga",
             "home_team": "Real Madrid",
             "away_team": "Celta Vigo",
             "commence_time": "2026-11-21T20:00:00Z",
             "side": "away",
             "line": 2,
             "book": "draftkings",
-            "price": 1.833,
+            "price": 1.87,
             "p_hybrid": 0.5806,
-            "ev": 0.0642,
+            "ev": 0.0857,
             "units": "3 Units (High Edge)"
         },
         {
@@ -72,12 +59,12 @@
             "away_team": "Villarreal",
             "commence_time": "2026-11-22T13:00:00Z",
             "side": "away",
-            "line": 2,
+            "line": 2.25,
             "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.5309,
-            "ev": 0.0617,
-            "units": "3 Units (High Edge)"
+            "price": 1.769,
+            "p_hybrid": 0.5772,
+            "ev": 0.021,
+            "units": "1 Unit (Standard Edge)"
         },
         {
             "league": "Bundesliga",
@@ -88,8 +75,8 @@
             "line": 1.75,
             "book": "draftkings",
             "price": 1.909,
-            "p_hybrid": 0.5908,
-            "ev": 0.1278,
+            "p_hybrid": 0.5869,
+            "ev": 0.1205,
             "units": "3 Units (High Edge)"
         },
         {
@@ -101,8 +88,8 @@
             "line": -0.5,
             "book": "draftkings",
             "price": 1.952,
-            "p_hybrid": 0.528,
-            "ev": 0.0306,
+            "p_hybrid": 0.5261,
+            "ev": 0.027,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -113,10 +100,10 @@
             "side": "away",
             "line": -1,
             "book": "draftkings",
-            "price": 1.87,
-            "p_hybrid": 0.5604,
-            "ev": 0.048,
-            "units": "2 Units (Moderate Edge)"
+            "price": 1.909,
+            "p_hybrid": 0.5623,
+            "ev": 0.0734,
+            "units": "3 Units (High Edge)"
         },
         {
             "league": "Bundesliga",
@@ -127,8 +114,8 @@
             "line": 0.5,
             "book": "draftkings",
             "price": 2,
-            "p_hybrid": 0.5158,
-            "ev": 0.0316,
+            "p_hybrid": 0.5152,
+            "ev": 0.0304,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -153,8 +140,8 @@
             "line": 1.5,
             "book": "draftkings",
             "price": 1.952,
-            "p_hybrid": 0.5518,
-            "ev": 0.0771,
+            "p_hybrid": 0.5543,
+            "ev": 0.0819,
             "units": "3 Units (High Edge)"
         },
         {
@@ -166,8 +153,8 @@
             "line": -1.25,
             "book": "draftkings",
             "price": 1.833,
-            "p_hybrid": 0.5656,
-            "ev": 0.0368,
+            "p_hybrid": 0.5636,
+            "ev": 0.0331,
             "units": "1 Unit (Standard Edge)"
         },
         {
@@ -191,22 +178,9 @@
             "side": "away",
             "line": 1.25,
             "book": "draftkings",
-            "price": 1.769,
-            "p_hybrid": 0.5814,
-            "ev": 0.0284,
-            "units": "1 Unit (Standard Edge)"
-        },
-        {
-            "league": "Serie A",
-            "home_team": "Atalanta BC",
-            "away_team": "Inter Milan",
-            "commence_time": "2026-11-22T19:45:00Z",
-            "side": "away",
-            "line": -1,
-            "book": "draftkings",
-            "price": 2,
-            "p_hybrid": 0.5113,
-            "ev": 0.0226,
+            "price": 1.8,
+            "p_hybrid": 0.577,
+            "ev": 0.0386,
             "units": "1 Unit (Standard Edge)"
         },
         {
